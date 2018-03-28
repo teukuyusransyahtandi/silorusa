@@ -32,9 +32,9 @@
         </div><!-- form-group -->
         <div class="form-group">
           <input type="password" class="form-control" placeholder="Enter your password">
-          <a href="<?= base_url('admin/dashboard') ?>" class="tx-info tx-12 d-block mg-t-10">Forgot password?</a>
+          <a href="" class="tx-info tx-12 d-block mg-t-10">Forgot password?</a>
         </div><!-- form-group -->
-        <button a href="" class="btn btn-info btn-block">Sign In</button>
+        <button a href="<?= base_url('admin/dashboard') ?>" class="btn btn-info btn-block">Sign In</button>
 
       </div><!-- login-wrapper -->
     </div><!-- d-flex -->
