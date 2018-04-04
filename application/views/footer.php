@@ -37,6 +37,9 @@
         // Select2
         $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
 
+      
+
+
     });
 </script>
 
