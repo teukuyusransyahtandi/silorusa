@@ -24,16 +24,41 @@ class Admin extends CI_Controller {
 		$this->load->view('template',$data);
 	}
 
-		public function pengisiandata()
+	public function pengisiandata()
 	{
 		$data['content'] = 'admin/pengisiandata';
 		$this->load->view('template',$data);
 	}
 
-		public function lihatdata()
+	public function pengisiandata_apotek()
+	{
+		$data['content'] = 'admin/pengisiandata_apotek';
+		$this->load->view('template',$data);
+	}
+
+	public function pengisiandatadokter()
+	{
+		$data['content'] = 'admin/pengisiandatadokter';
+		$this->load->view('template',$data);
+	}
+
+	public function lihatdata()
 	{
 		$data['content'] = 'admin/lihatdata';
 		$this->load->view('template',$data);
 	}
+
+	public function lihatdata_apotek()
+	{
+		$data['content'] = 'admin/lihatdata_apotek';
+		$this->load->view('template',$data);
+	}
+
+	public function lihatdatadokter()
+	{
+		$data['content'] = 'admin/lihatdatadokter';
+		$this->load->view('template',$data);
+	}
+
 
 }
