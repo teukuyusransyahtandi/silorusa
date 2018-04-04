@@ -13,6 +13,9 @@
 <script src="<?php echo base_url('assets/'); ?>lib/datatables-responsive/dataTables.responsive.js"></script>
 <script src="<?php echo base_url('assets/'); ?>lib/select2/js/select2.min.js"></script>
 
+
+
+
 <script src="<?php echo base_url('assets/'); ?>js/bracket.js"></script>
 
 <script>
@@ -37,11 +40,13 @@
         // Select2
         $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
 
-      
+
 
 
     });
 </script>
+
+
 
 
 
