@@ -110,6 +110,7 @@
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
+          icon: 'assets/img/icon.png',
           position: place.geometry.location
         });
 
