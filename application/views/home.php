@@ -66,61 +66,6 @@
     });
 </script>
 <script src="<?php echo base_url('assets/'); ?>js/bracket.js"></script>
-<script>
-     var map;
-      var infowindow;
-
-      function initMap() {
-        var aceh = {lat: 5.565438, lng: 95.337018};
-
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: aceh,
-          zoom: 15,
-          styles: [
-              {
-            featureType: 'poi',
-            stylers: [{visibility: 'off'}]
-          },
-          {
-            featureType: 'transit',
-            elementType: 'labels.icon',
-            stylers: [{visibility: 'off'}]
-          }
-            ]
-        });
-
-        infowindow = new google.maps.InfoWindow();
-        var service = new google.maps.places.PlacesService(map);
-        service.nearbySearch({
-          location: aceh,
-          radius: 500,
-          type: ['hospital']
-        }, callback);
-      }
-
-      function callback(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          for (var i = 0; i < results.length; i++) {
-            createMarker(results[i]);
-          }
-        }
-      }
-
-      function createMarker(place) {
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-          map: map,
-          icon: 'assets/img/icon.png',
-          position: place.geometry.location
-        });
-
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
-        });
-      }
-    </script>
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZvI-vrex6zb3-tX75hJNUqRC8VZc3dUE&libraries=places&callback=initMap" async defer></script>
 
 
 
