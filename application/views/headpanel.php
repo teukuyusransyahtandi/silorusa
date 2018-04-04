@@ -81,7 +81,7 @@
             <ul class="list-unstyled user-profile-nav">
               <li><a href=""><i class="icon ion-ios-person"></i> Edit Profile</a></li>
               <li><a href=""><i class="icon ion-ios-gear"></i> Settings</a></li>
-              <li><a href=""><i class="icon ion-power"></i> Sign Out</a></li>
+              <li><a href="<?php echo base_url() ?>"><i class="icon ion-power"></i> Sign Out</a></li>
             </ul>
           </div><!-- dropdown-menu -->
         </div><!-- dropdown -->
