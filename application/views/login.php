@@ -34,7 +34,7 @@
           <input type="password" class="form-control" placeholder="Enter your password">
           <a href="" class="tx-info tx-12 d-block mg-t-10">Forgot password?</a>
         </div><!-- form-group -->
-        <button a href="<?= base_url('admin/dashboard') ?>" class="btn btn-info btn-block">Sign In</button>
+        <a href="<?= base_url('admin/dashboard') ?>" class="btn btn-info btn-block">Sign In</a>
 
       </div><!-- login-wrapper -->
     </div><!-- d-flex -->
