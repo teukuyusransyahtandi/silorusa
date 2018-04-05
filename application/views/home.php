@@ -28,12 +28,21 @@
   <div class="br-sideleft overflow-y-auto ps ps--theme_default ps--active-x ps--active-y" data-ps-id="f6cfb3d3-5bdb-23da-a463-74615b0b80d0">
       <label class="sidebar-label pd-x-15 mg-t-20">Navigation</label>
       <div class="br-sideleft-menu">
-       <div class="d-md-flex pd-y-10 pd-md-y-0">
-           <select class="form-control select2-show-search" >
-              <option value="Firefox">--Kategori Fasilitas--</option>
-              <option value="Firefox">Rumah Sakit</option>
-              <option value="Chrome">Apotik</option>
-              <option value="Safari">Praktik Umum</option>
+       <div class=" pd-y-10">
+           <select class="form-control" id="fasilitas">
+              <option value="0">--Kategori Fasilitas--</option>
+              <option value="rumah_sakit">Rumah Sakit</option>
+              <option value="apotik">Apotik</option>
+              <option value="spesialis">Praktik Spesialis</option>
+            </select>
+
+      </div>
+      <div class=" pd-y-10" id="spesialis" style="display: none;">
+        <select class="form-control">
+              <option value="0">--Pilih Dokter Spesialis--</option>
+              <option value="mata">Spesialis Mata</option>
+              <option value="kulit">Spesialis Kulit</option>
+              <option value="penyakit_dalam">Spesialis Penyakit Dalam</option>
             </select>
       </div>
         
@@ -53,10 +62,7 @@
       <div id="map" style="width: 100%; height: 100%;"></div>
     </div><!-- br-mainpanel -->
   <!-- <div id="map" style="width: 100%; height: 100%;"></div> -->
-
-  </body>
-
-<script src="<?php echo base_url('assets/'); ?>lib/jquery/jquery.js"></script>
+  <script src="<?php echo base_url('assets/'); ?>lib/jquery/jquery.js"></script>
 <script src="<?php echo base_url('assets/'); ?>lib/bootstrap/bootstrap.js"></script>
 
 <script src="<?php echo base_url('assets/'); ?>lib/select2/js/select2.min.js"></script>
@@ -67,6 +73,10 @@
 </script>
 <script src="<?php echo base_url('assets/'); ?>js/bracket.js"></script>
 <script>
+      $(document).ready(function(){
+      alert('bisa');
+   });
+
      var map;
       var infowindow;
 
@@ -119,8 +129,28 @@
           infowindow.open(map, this);
         });
       }
+
+    //   $(function() {
+    //     // $('#spesialis').hide();
+    //     alert('bisa');
+    // });
+
+      $('#fasilitas').change(function() {
+        fasilitas = $(this).val();
+
+        if(fasilitas == 'spesialis'){
+          $('#spesialis').show();
+        }else{
+          $('#spesialis').hide();
+        }
+
+      });
     </script>
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZvI-vrex6zb3-tX75hJNUqRC8VZc3dUE&libraries=places&callback=initMap" async defer></script>
+
+  </body>
+
+
 
 
 

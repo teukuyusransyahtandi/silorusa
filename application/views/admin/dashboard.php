@@ -69,13 +69,14 @@
     <div class="card bd-0 shadow-base pd-30">
       <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">FASILITAS</h6>
       <p class="mg-b-25">Pilih Kategori Fasilitas</p>
-      <select class="form-control select2-show-search" >
-        <option value="Firefox">--Kategori Fasilitas--</option>
-        <option value="Firefox">Rumah Sakit</option>
-        <option value="Chrome">Apotik</option>
-        <option value="Safari">Praktik Umum</option>
-      </select>
+      <select class="form-control" id="fasilitas">
+              <option value="0">--Kategori Fasilitas--</option>
+              <option value="rumah_sakit">Rumah Sakit</option>
+              <option value="apotik">Apotik</option>
+              <option value="spesialis">Praktik Spesialis</option>
+            </select>
     </div>
+
   </div>
 
   <div class="mg-t-20 tx-13">

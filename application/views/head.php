@@ -20,4 +20,6 @@
 
   <!-- Bracket CSS -->
   <link rel="stylesheet" href="<?php echo base_url('assets/'); ?>css/bracket.css">
+
+  <script src="<?php echo base_url('assets/'); ?>lib/jquery/jquery.js"></script>
 </head>
