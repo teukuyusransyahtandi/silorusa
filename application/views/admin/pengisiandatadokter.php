@@ -1,36 +1,22 @@
-<form class="form-horizontal" action="/action_page.php">
+<?php echo form_open('proses/proses_pengisian_data_dokter'); ?>
 	<div class="form-group">
 		<label class="control-label col-sm-2" for="email">Nama Dokter</label>
 		<div class="col-sm-10">
-			<input type="email" class="form-control" id="email" placeholder="Isi nama dokter">
+			<input type="email" class="form-control" id="email" name="nama_dokter" placeholder="Isi nama dokter">
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label class="control-label col-sm-2" for="email">Spesialis</label>
 		<div class="col-sm-10">
-			<input type="email" class="form-control" id="email" placeholder="Isi spesialis">
+			<input type="email" class="form-control" id="email" name="spesialis" placeholder="Isi spesialis">
 		</div>
 	</div>
 
 		<div class="form-group">
-		<label class="control-label col-sm-2" for="email">Jam Buka</label>
+		<label class="control-label col-sm-2" for="email">Nomor HP</label>
 		<div class="col-sm-10">
-			<input type="email" class="form-control" id="email" placeholder="Isi jam buka">
-		</div>
-	</div>
-
-		<div class="form-group">
-		<label class="control-label col-sm-2" for="email">Nomor Telp</label>
-		<div class="col-sm-10">
-			<input type="email" class="form-control" id="email" placeholder="Isi no telp">
-		</div>
-	</div>
-
-		<div class="form-group">
-		<label class="control-label col-sm-2" for="email">Lokasi Praktek</label>
-		<div class="col-sm-10">
-			<input type="email" class="form-control" id="email" placeholder="Isi lokasi praktek">
+			<input type="email" class="form-control" id="email" name="nomor_hp" placeholder="Isi no telp">
 		</div>
 	</div>
 
@@ -40,4 +26,4 @@
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</div>
 	</div>
-</form>
+  <?php echo form_close(); ?>
