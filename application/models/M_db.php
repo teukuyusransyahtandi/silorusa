@@ -10,6 +10,11 @@ class M_db extends CI_Model
 
 	public function cek_login($data)
 	{
-		return $this->db->get_where('admin', $data);
+		return $this->db->get_where('user', $data);
+	}
+
+	public function tambah_dokter($data)
+	{
+		return $this->db->insert('spesialis', $data);
 	}
 }

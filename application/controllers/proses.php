@@ -40,15 +40,17 @@ class Proses extends CI_Controller {
 		//mengambil nama dari databases
 			foreach ($cek as $v){
 				$nama   = $v->username;
+				$level   = $v->level;
 			}
 
 			$data_session = array(
 				'nama'   => $nama,
+				'level'   => $level,
 			);
-
-		//mengset data session
 			$this->session->set_userdata($data_session);
-			redirect('admin/dashboard/');
+			if ($this->session->userdata('level') == "admin") {
+				redirect('admin/dashboard/');
+			}
 		}
 
 		else
@@ -60,13 +62,31 @@ class Proses extends CI_Controller {
 	}
 
 	public function proses_pengisian_data_dokter(){
-		$username  = $this->input->post('username');
-		$password = $this->input->post('password');
+		$nama_dokter  = $this->input->post('nama_dokter');
+		$spesialis = $this->input->post('spesialis');
+		$nomor_hp = $this->input->post('nomor_hp');
 
 		$data = array(
-			'username'   => $username,
-			'password' => $password,
+			'nama_dokter'   => $nama_dokter,
+			'spesialis' => $spesialis,
+			'nomor_hp' => $nomor_hp,
 		);
+		$this->M_db->tambah_dokter($data);
+		redirect('admin/lihatdatadokter');
+	}
+
+	public function proses_pengisian_data_apo(){
+		$nama_dokter  = $this->input->post('nama_dokter');
+		$spesialis = $this->input->post('spesialis');
+		$nomor_hp = $this->input->post('nomor_hp');
+
+		$data = array(
+			'nama_dokter'   => $nama_dokter,
+			'spesialis' => $spesialis,
+			'nomor_hp' => $nomor_hp,
+		);
+		$this->M_db->tambah_dokter($data);
+		redirect('admin/lihatdatadokter');
 	}
 
 }
