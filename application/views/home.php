@@ -70,6 +70,7 @@
      var base_url = '<?php echo base_url();?>';
      var map;
       var infowindow;
+      var markers = [];
 
       function initMap() {
         var aceh = {lat: 5.565438, lng: 95.337018};
@@ -77,7 +78,7 @@
 
         map = new google.maps.Map(document.getElementById('map'), {
           center: aceh,
-          zoom: 15,
+          zoom: 12,
           styles: [
               {
             featureType: 'poi',
@@ -97,27 +98,15 @@
               success: function(respons) {
                 data = JSON.parse(respons);
                for (i=0; i <= data.length-1; i++) {
-                   latlng = new google.maps.LatLng(data[i].latitude, data[i].longitude);
-                   if(data[i].nama_kategori == 'Rumah Sakit'){
-                      label = 'rumah_sakit.png';
-                   }else{
-                      label = 'praktik.png';
-                   }
+                  var latlng = new google.maps.LatLng(data[i].latitude, data[i].longitude);
+                  var label = data[i].gambar_label
+                  var description = '<b>'+data[i].nama_lokasi+'<b><hr><b>Jam Buka : '+data[i].jam_buka+'</b><br><b>Telp : '+data[i].nomor_hp+'</b><hr><a href="'+base_url+'detail/'+data[i].id_lokasi+'">Lihat Detail Lokasi</a>';
+
+                  createMarker(latlng, label, description);
                    
-                   var marker = new google.maps.Marker({
-                      map: map,
-                      icon: 'assets/img/label/'+label,
-                      position: latlng
-                    });
-
-                   var description = '<b>'+data[i].nama_lokasi+'<b><hr><b>Jam Buka : '+data[i].jam_buka+'</b><br><b>Telp : '+data[i].nomor_hp+'</b><hr><a href="'+base_url+'detail/'+data[i].id_lokasi+'">Lihat Detail Lokasi</a>';
-
-                    google.maps.event.addListener(marker, 'click', function() {
-
-                      infowindow.setContent(description);
-                      infowindow.open(map, this);
-                    });
+                  
                 }
+                setMapOnAll(map);
                 // alert(respons.nama_lokasi);
                 //  marker = new google.maps.Marker({
                 //     position: new google.maps.LatLng(respons.lat, respons.long),
@@ -132,6 +121,18 @@
               }
             });
       }
+
+      function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+      }
+
+      function clearMarkers(){
+        setMapOnAll(null);
+        markers = [];
+      }
+
 
         // infowindow = new google.maps.InfoWindow();
         // var service = new google.maps.places.PlacesService(map);
@@ -150,8 +151,7 @@
       //   }
       // }
 
-      function createMarker(latLng, myLabel) {
-        var placeLoc = place.geometry.location;
+      function createMarker(latLng, myLabel, content) {
         var marker = new google.maps.Marker({
           map: map,
           icon: 'assets/img/label/'+myLabel,
@@ -159,9 +159,11 @@
         });
 
         google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
+          infowindow.setContent(content);
           infowindow.open(map, this);
         });
+
+        markers.push(marker);
       }
 
       $('#fasilitas').change(function() {
@@ -182,7 +184,17 @@
           url: "home/search",
           data: {data: data},
           success: function(respons) {
-            alert(respons);
+              clearMarkers();
+             data = JSON.parse(respons);
+               for (i=0; i <= data.length-1; i++) {
+                   var latlng = new google.maps.LatLng(data[i].latitude, data[i].longitude);
+                   var label = data[i].gambar_label
+                   var description = '<b>'+data[i].nama_lokasi+'<b><hr><b>Jam Buka : '+data[i].jam_buka+'</b><br><b>Telp : '+data[i].nomor_hp+'</b><hr><a href="'+base_url+'detail/'+data[i].id_lokasi+'">Lihat Detail Lokasi</a>';
+
+                    createMarker(latlng, label, description);
+                }
+                setMapOnAll(map);
+
           }
         });
       });

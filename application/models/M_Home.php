@@ -31,7 +31,7 @@ class M_Home extends CI_Model
 		$data[0] = '-- Pilih Dokter Spesialis --';
 		if(count($result) > 0){
 			foreach($result as $r){
-				$data[$r->id_spesialis] = $r->nama_spesialis;
+				$data[$r->id] = $r->nama_spesialis;
 			}
 		}
 
