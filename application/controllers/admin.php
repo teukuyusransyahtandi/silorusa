@@ -18,6 +18,15 @@ class Admin extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
+	function __construct()
+
+    {
+        // Construct the parent class
+        parent::__construct();
+        if (!$this->session->userdata('nama')) redirect('/login');
+    }
+
 	public function dashboard()
 	{
 		$data['content'] = 'admin/dashboard';

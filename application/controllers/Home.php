@@ -14,6 +14,7 @@ class Home extends CI_Controller {
 	{
 		$data['kategori'] = $this->M_Home->dropdown_kategori();
 		$data['spesialis'] = $this->M_Home->dropdown_spesialis();
+		$data['content'] = 'map';
 		$this->load->view('home', $data);
 	}
 
@@ -70,6 +71,14 @@ class Home extends CI_Controller {
 			}
 		}
 		
+	}
+
+	public function detail($id){
+		$data['kategori'] = $this->M_Home->dropdown_kategori();
+		$data['spesialis'] = $this->M_Home->dropdown_spesialis();
+		// $this->M_Home->get_
+		$data['content'] = 'detail';
+		$this->load->view('home', $data);
 	}
 
 }

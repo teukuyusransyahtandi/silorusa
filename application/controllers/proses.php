@@ -30,7 +30,7 @@ class Proses extends CI_Controller {
 
 		$data = array(
 			'username'   => $username,
-			'password' => $password,
+			'password' => md5($password),
 		);
 
 		$cek = $this->M_db->cek_login($data)->result_object();
@@ -48,7 +48,7 @@ class Proses extends CI_Controller {
 				'level'   => $level,
 			);
 			$this->session->set_userdata($data_session);
-			if ($this->session->userdata('level') == "admin") {
+			if ($this->session->userdata('level') == "administrator") {
 				redirect('admin/dashboard/');
 			}
 		}
@@ -59,6 +59,11 @@ class Proses extends CI_Controller {
 			redirect('login');
 			
 		}
+	}
+
+	public function proses_logout(){
+			$this->session->sess_destroy();
+			redirect('login');
 	}
 
 	public function proses_pengisian_data_dokter(){

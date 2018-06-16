@@ -34,6 +34,7 @@
         <div class="form-group">
           <input type="password" class="form-control" name="password" placeholder="Enter your password">
           <a href="" class="tx-info tx-12 d-block mg-t-10">Forgot password?</a>
+          <span class="tx-danger"><?= $this->session->flashdata('info') ?></span>
         </div><!-- form-group -->
         <button type="submit" class="btn btn-info btn-block">Sign In</a>
 

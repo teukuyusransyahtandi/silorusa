@@ -37,4 +37,13 @@ class M_Home extends CI_Model
 
 		return $data;
 	}
+
+
+	public function get_tempat($id){
+		$this->db->select('*')
+				 ->from('lokasi')
+			     ->where('id_lokasi', $id);
+
+		return $this->db->get()->row();
+	}
 }
