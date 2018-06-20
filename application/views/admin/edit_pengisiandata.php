@@ -1,43 +1,46 @@
-<?php echo form_open('proses/proses_pengisian_data_rs'); ?>
+<?php 
+    foreach ($data as $v):
+    echo form_open("proses/proses_edit_pengisian_data_rs/$v->id_lokasi"); 
+?>
 	<div class="form-group">
-		<label class="control-label col-sm-2" for="email">Nama Rumah Sakit</label>
+		<label class="control-label col-sm-2" for="email">Nama Rumah Sakit </label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="email" placeholder="Isi nama rumah sakit" name="nama_lokasi">
+			<input type="text" class="form-control" id="email"  name="nama_lokasi" value='<?php echo $v->nama_lokasi ?>' >
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label class="control-label col-sm-2" for="email">Jam Buka</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="email" placeholder="Isi alamat rumah sakit" name="jam_buka">
+			<input type="text" class="form-control" id="email" placeholder="Isi alamat rumah sakit" name="jam_buka" value='<?php echo $v->jam_buka ?>'>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label class="control-label col-sm-2" for="email">Nomor Hp</label>
 		<div class="col-sm-10">
-			<input type="number" class="form-control" id="email" placeholder="Isi alamat rumah sakit" name="nomor_hp">
+			<input type="number" class="form-control" id="email" placeholder="Isi alamat rumah sakit" name="nomor_hp" value='<?php echo $v->nomor_hp ?>'>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label class="control-label col-sm-2" for="email">Address</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="address" placeholder="Isi alamat rumah sakit" name="alamat_lokasi">
+			<input type="text" class="form-control" id="address" placeholder="Isi alamat rumah sakit" name="alamat_lokasi" value='<?php echo $v->alamat_lokasi ?>'>
 		</div>
 	</div>
 
 		<div class="form-group">
 		<label class="control-label col-sm-2" for="email">Latitude</label>
 		<div class="col-sm-10">
-			<input type="number" class="form-control" id="latitude" placeholder="Isi alamat rumah sakit"  name="latitude" step="any">
+			<input type="number" class="form-control" id="latitude" placeholder="Isi alamat rumah sakit"  name="latitude" step="any" value='<?php echo $v->latitude ?>'>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label class="control-label col-sm-2" for="email">Longitude</label>
 		<div class="col-sm-10">
-			<input type="number" class="form-control" id="longitude" placeholder="Isi alamat rumah sakit"  name="longitude" step="any">
+			<input type="number" class="form-control" id="longitude" placeholder="Isi alamat rumah sakit"  name="longitude" step="any" value='<?php echo $v->longitude ?>'>
 		</div>
 	</div>
 
@@ -53,7 +56,10 @@
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</div>
 	</div>
-<?php echo form_close(); ?>
+<?php 
+	echo form_close(); 
+	endforeach;
+?>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZvI-vrex6zb3-tX75hJNUqRC8VZc3dUE&v=3.exp&sensor=false">
 </script>

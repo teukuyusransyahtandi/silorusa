@@ -55,12 +55,14 @@ class Admin extends CI_Controller {
 	public function pengisiandatadokter()
 	{
 		$data['content'] = 'admin/pengisiandatadokter';
+		$data['spesialis']=$this->M_db->daftar_spesialis();
 		$this->load->view('template',$data);
 	}
 
 	public function lihatdata()
 	{
 		$data['content'] = 'admin/lihatdata';
+		$data['data']=$this->M_db->lihat_lokasi();
 		$this->load->view('template',$data);
 	}
 
@@ -73,6 +75,65 @@ class Admin extends CI_Controller {
 	public function lihatdatadokter()
 	{
 		$data['content'] = 'admin/lihatdatadokter';
+		$data['data']= $this->M_db->lihatdatadokter();
+		$this->load->view('template',$data);
+	}
+
+	public function pengisiandatakategorilokasi(){
+		$data['content'] ='admin/pengisiandatakategorilokasi';
+		$data['data1']=$this->M_db->lihat_lokasi();
+		$data['data2']=$this->M_db->lihat_kategori();
+		$this->load->view('template',$data);
+	}
+
+	public function pengisiandataspesialis(){
+		$data['content']='admin/pengisiandata_jenisspesialis';
+		$this->load->view('template',$data);
+	}
+
+	public function lihatdatakategorilokasi(){
+		$data['content']='admin/lihatdatakategorilokasi';
+		$data['data']=$this->M_db->lihat_kategori_lokasi();
+		$this->load->view('template',$data);
+	}
+
+	public function edit_pengisiandata($id){
+		$data['content']='admin/edit_pengisiandata';
+		$data['data']=$this->M_db->edit_pengisiandata($id);
+		$this->load->view('template',$data);
+	}
+
+	public function edit_datadokter($id)
+	{
+		$data['content'] = 'admin/edit_datadokter';
+		$data['data']= $this->M_db->lihatdatadokter($id);
+		$data['data1']= $this->M_db->lihatdataspesialis();
+		$this->load->view('template',$data);
+	}
+
+	public function edit_kategorilokasi($id){
+		$data['content']='admin/editkategorilokasi';
+		$data['data']=$this->M_db->edit_kategorilokasi($id);
+		$data['data2']=$this->M_db->lihat_kategori();
+		$this->load->view('template',$data);
+	}
+
+	public function lihatdataspesialis(){
+		$data['content']='admin/lihatdataspesialis';
+		$data['data'] = $this->M_db->lihatdataspesialis();
+		$this->load->view('template',$data);
+	}
+
+	public function edit_jenisspesialis($id){
+		$data['content']='admin/edit_jenisspesialis';
+		$data['data'] = $this->M_db->edit_lihatdataspesialis($id);
+		$this->load->view('template',$data);
+	}
+
+	public function pengisiandatadokterdantempat(){
+		$data['content']='admin/pengisiandatadokterdantempat';
+		$data['data'] = $this->M_db->lihatdokter();
+		$data['data2'] = $this->M_db->daftar_lokasi();
 		$this->load->view('template',$data);
 	}
 

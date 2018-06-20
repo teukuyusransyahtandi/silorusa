@@ -8,10 +8,8 @@
 							<tr>
 								<th class="wd-15p">No</th>
 								<th class="wd-15p">Nama Lokasi</th>
-								<th class="wd-15p">Alamat </th>
-								<th class="wd-15p">Jam Buka </th>
-								<th class="wd-15p">Kategori </th>
-								<th class="wd-20p">Edit</th>
+								<th class="wd-15p">Kategori Lokasi </th>
+								<th class="wd-15p">Edit </th>
 								<th class="wd-15p">Hapus</th>
 							</tr>
 						</thead>
@@ -23,12 +21,10 @@
 								<tr>
 									<td align="center"><?= ++$i ?></td>
 									<td><?= $v->nama_lokasi?></td>
-									<td><?= $v->alamat_lokasi ?></td>
-									<td><?= $v->jam_buka ?></td>
-									<td><?= $v->nama_kategori ?></td>
-									<td><a href="<?php echo base_url("admin/edit_pengisiandata/$v->id_lokasi"); ?>"
+									<td><?= $v->nama_kategori?></td>
+									<td><a href="<?php echo base_url("admin/edit_kategorilokasi/$v->id_lokasi"); ?>"
 										class="btn btn-info">Edit</a></td>
-									<td><a href="<?php echo base_url("admin/edit_pengisiandata/$v->id_lokasi"); ?>"
+									<td><a href="<?php echo base_url("$v->id_lokasi"); ?>"
 											class="btn btn-danger">Hapus</a></td>
 										</tr>
 									<?php endforeach; ?>
