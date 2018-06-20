@@ -14469,7 +14469,7 @@ textarea.parsley-success:focus {
 
 /* ############### PROFILE PAGE ############### */
 .br-profile-page .card-header {
-  background-color: #17A2B8;
+  background-color: #0866C6/*#17A2B8*/;
   border-bottom: 0;
   border-radius: 0;
 }

@@ -15,6 +15,7 @@ class Home extends CI_Controller {
 		$data['kategori'] = $this->M_Home->dropdown_kategori();
 		$data['spesialis'] = $this->M_Home->dropdown_spesialis();
 		$data['content'] = 'map';
+		$data['title_page'] = 'SILORUSA - Homepage';
 		$this->load->view('home', $data);
 	}
 
@@ -76,9 +77,28 @@ class Home extends CI_Controller {
 	public function detail($id){
 		$data['kategori'] = $this->M_Home->dropdown_kategori();
 		$data['spesialis'] = $this->M_Home->dropdown_spesialis();
-		// $this->M_Home->get_
+		$data['id_lokasi'] = $id;
+		$data['tempat'] = $this->M_Home->get_tempat($id);
+		$data['review'] = $this->M_Home->get_review($id);
+		$data['dokter'] = $this->M_Home->get_dokter($id);
+		$data['title_page'] = 'SILORUSA - Detail Lokasi';
 		$data['content'] = 'detail';
 		$this->load->view('home', $data);
+	}
+
+
+	public function add_review(){
+
+		$data = array(
+				'id_lokasi' => $this->input->post('id_lokasi'),
+				'id_user' => $this->session->userdata('id'),
+				'comment' => $this->input->post('isi')
+				);
+
+		$query = $this->db->insert('review', $data);
+		if($query){
+			redirect('detail/'.$data['id_lokasi']);
+		}
 	}
 
 }

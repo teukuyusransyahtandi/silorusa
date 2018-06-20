@@ -24,7 +24,14 @@ class Admin extends CI_Controller {
     {
         // Construct the parent class
         parent::__construct();
-        if (!$this->session->userdata('nama')) redirect('/login');
+        if (!$this->session->userdata('nama')) {
+        	redirect('/login');
+        }
+        else{
+        	if ($this->session->userdata('level') != "administrator") {
+				redirect('home');
+			}
+        }
     }
 
 	public function dashboard()

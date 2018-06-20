@@ -7,7 +7,7 @@
   <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
   <meta name="author" content="ThemePixels">
 
-  <title>Silorusa</title>
+  <title><?= $title_page ?></title>
 
   <!-- vendor css -->
   <link href="<?php echo base_url('assets/'); ?>lib/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 
 
   <body>
-  <div class="br-logo"><a href=""><span>|</span>silorusa<span>|</span></a></div>
+  <div class="br-logo"><a href="<?= base_url() ?>"><span>|</span>silorusa<span>|</span></a></div>
   <div class="br-sideleft overflow-y-auto ps ps--theme_default ps--active-x ps--active-y" data-ps-id="f6cfb3d3-5bdb-23da-a463-74615b0b80d0">
       <label class="sidebar-label pd-x-15 mg-t-20">Navigation</label>
       <?php echo form_open('', array('id' => 'searchForm'));?>
@@ -47,8 +47,41 @@
 
     <div class="br-header">
       <div class="br-header-left">
+      <div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href=""><i class="icon ion-navicon-round"></i></a></div>
+       
       </div><!-- br-header-left -->
-      <div class="pd-10">
-        <a href="<?= base_url('login') ?>" class="btn btn-primary bd-0 btn-compose"><i class="fa fa-sign-in"></i> Login</a>
-      </div>
+
+      <?php
+      if(! $this->session->userdata('nama')){
+        ?>
+          <div class="pd-10">
+            <a href="<?= base_url('register') ?>" class="btn btn-primary bd-0 btn-compose"><i class="fa fa-sign-in"></i> Register</a>
+            <a href="<?= base_url('login') ?>" class="btn btn-primary bd-0 btn-compose"><i class="fa fa-sign-in"></i> Login</a>
+          </div>
+        <?php
+      }else{
+        ?>
+        <div class="br-header-right">
+       <nav class="nav">
+        <div class="dropdown">
+          <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
+            <span class="logged-name hidden-md-down"><?= $this->session->userdata('nama') ?></span>
+            <img src="http://via.placeholder.com/64x64" class="wd-32 rounded-circle" alt="">
+            <span class="square-10 bg-success"></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-header wd-200">
+            <ul class="list-unstyled user-profile-nav">
+              <li><a href=""><i class="icon ion-ios-person"></i> Edit Profile</a></li>
+              <li><a href=""><i class="icon ion-ios-gear"></i> Settings</a></li>
+              <li><a href="<?= base_url('proses/proses_logout') ?>"><i class="icon ion-power"></i> Sign Out</a></li>
+            </ul>
+          </div><!-- dropdown-menu -->
+        </div><!-- dropdown -->
+      </nav>
+     </div>
+        <?php
+      }
+      ?>
+      
+      </nav>
     </div>

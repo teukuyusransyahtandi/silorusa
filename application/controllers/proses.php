@@ -39,17 +39,21 @@ class Proses extends CI_Controller {
 		{
 		//mengambil nama dari databases
 			foreach ($cek as $v){
+				$id   = $v->id;
 				$nama   = $v->username;
 				$level   = $v->level;
 			}
 
 			$data_session = array(
+				'id'   => $id,
 				'nama'   => $nama,
 				'level'   => $level,
 			);
 			$this->session->set_userdata($data_session);
 			if ($this->session->userdata('level') == "administrator") {
 				redirect('admin/dashboard/');
+			}else{
+				redirect('home');
 			}
 		}
 
@@ -61,9 +65,18 @@ class Proses extends CI_Controller {
 		}
 	}
 
+	public function proses_register(){
+		
+	}
+
 	public function proses_logout(){
+			if($this->session->userdata('level') == 'administrator'){
+				$page = 'login';
+			}else{
+				$page = 'home';
+			}
 			$this->session->sess_destroy();
-			redirect('login');
+			redirect($page);
 	}
 
 	public function proses_pengisian_data_dokter(){
