@@ -6,6 +6,7 @@
 					<table id="datatable1" class="table display responsive nowrap">
 						<thead>
 							<tr>
+								<th class="wd-15p">No</th>
 								<th class="wd-15p">Nama Dokter</th>
 								<th class="wd-15p">Spesialis</th>
 								<th class="wd-15p">Jam buka </th>
@@ -16,41 +17,28 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>Nama Dokter 1 </td>
-								<td>Spesialis Dokter 1 </td>
-								<td>Jam Buka Dokter 1 </td>
-								<td>Nomor telp </td>
-								<td>Lokasi Praktek Dokter 1 </td>
-								<td><button class="btn btn-info" data-toggle="modal" data-target=".bs-example-modal-lg" >edit</button></td>
-								<td><button class="btn btn-danger" onClick="confirm('hapus data?')"
-									>hapus</button></td>
-								</tr>
+							<?php
+							$i = 0;
+							foreach ($data as $v):
+								?>
 								<tr>
-								<td>Nama Dokter 2</td>
-								<td>Spesialis Dokter 2 </td>
-								<td>Jam Buka Dokter 2 </td>
-								<td>Nomor telp </td>
-								<td>Lokasi Praktek Dokter 2 </td>
-									<td><button class="btn btn-info" data-toggle="modal" data-target=".bs-example-modal-lg" >edit</button></td>
-									<td><button class="btn btn-danger" onClick="confirm('hapus data?')"
-										>hapus</button></td>
-									</tr>
-									<tr>
-								<td>Nama Dokter 3 </td>
-								<td>Spesialis Dokter 3 </td>
-								<td>Jam Buka Dokter 3 </td>
-								<td>Nomor telp </td>
-								<td>Lokasi Praktek Dokter 3 </td>
-										<td><button class="btn btn-info" data-toggle="modal" data-target=".bs-example-modal-lg" >edit</button></td>
-										<td><button class="btn btn-danger" onClick="confirm('hapus data?')"
-											>hapus</button></td>
+									<td align="center"><?= ++$i ?></td>
+									<td><?= $v->nama_dokter?></td>
+									<td><?= $v->nama_spesialis?></td>
+									<td><?= $v->jam_buka?></td>
+									<td><?= $v->nomor_hp ?></td>
+									<td><?= $v->nama_lokasi ?></td>
+									<td><a href="<?php echo base_url("admin/edit_datadokter/$v->id_dokter"); ?>"
+										class="btn btn-info">Edit</a></td>
+										<td><a href="<?php echo base_url("$v->id_dokter"); ?>"
+											class="btn btn-danger">Hapus</a></td>
 										</tr>
-									</tbody>
-								</table>
-							</div><!-- table-wrapper -->
+									<?php endforeach; ?>
+								</tbody>
+							</table>
+						</div><!-- table-wrapper -->
 
-						</div><!-- br-section-wrapper -->
-					</div><!-- br-pagebody -->
+					</div><!-- br-section-wrapper -->
+				</div><!-- br-pagebody -->
 
 

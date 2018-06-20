@@ -67,9 +67,9 @@ class Proses extends CI_Controller {
 		$nomor_hp = $this->input->post('nomor_hp');
 
 		$data = array(
-			'nama_dokter'   => $nama_dokter,
-			'spesialis' => $spesialis,
+			'id_spesialis' => $spesialis,
 			'nomor_hp' => $nomor_hp,
+			'nama_dokter'   => $nama_dokter,
 		);
 		$this->M_db->tambah_dokter($data);
 		redirect('admin/lihatdatadokter');
@@ -81,12 +81,132 @@ class Proses extends CI_Controller {
 		$nomor_hp = $this->input->post('nomor_hp');
 
 		$data = array(
-			'nama_dokter'   => $nama_dokter,
-			'spesialis' => $spesialis,
+			'id_spesialis' => $spesialis,
 			'nomor_hp' => $nomor_hp,
+			'nama_dokter'   => $nama_dokter,
 		);
 		$this->M_db->tambah_dokter($data);
 		redirect('admin/lihatdatadokter');
+	}
+
+	public function proses_pengisian_data_rs(){
+		$nama_lokasi = $this->input->post('nama_lokasi');
+		$alamat_lokasi = $this->input->post('alamat_lokasi');
+		$jam_buka = $this->input->post('jam_buka');
+		$nomor_hp = $this->input->post('nomor_hp');
+		$latitude= $this->input->post('latitude');
+		$longitude = $this->input->post('longitude');
+
+		$data=array(
+			'nama_lokasi'=>$nama_lokasi,
+			'alamat_lokasi'=>$alamat_lokasi,
+			'jam_buka'=>$jam_buka,
+			'nomor_hp'=>$nomor_hp,
+			'latitude'=>$latitude,
+			'longitude'=>$longitude
+
+		);
+		$this->M_db->tambah_lokasi($data);
+		redirect('admin/lihatdatadokter');
+
+
+	}
+
+	public function proses_pengisian_data_kategori_lokasi(){
+		$lokasi=$this->input->post('lokasi');
+		$kategori=$this->input->post('kategori');
+
+		$data=array(
+			'id_lokasi'=>$lokasi,
+			'id_kategori'=>$kategori,
+		);
+
+		$this->M_db->tambah_kategori_lokasi($data);
+		redirect('admin/lihatdatadokter');
+
+	}
+
+	public function proses_pengisian_data_jenis_spesialis(){
+		$jenis_spesialis=$this->input->post('jenis_spesialis');
+		$data=array(
+			'nama_spesialis'=>$jenis_spesialis
+		);
+
+		$this->M_db->tambah_jenis_spesialis($data);
+		redirect('admin/lihatdatadokter');
+	}
+
+	public function proses_edit_pengisian_data_rs($id){
+		$nama_lokasi = $this->input->post('nama_lokasi');
+		$alamat_lokasi = $this->input->post('alamat_lokasi');
+		$jam_buka = $this->input->post('jam_buka');
+		$nomor_hp = $this->input->post('nomor_hp');
+		$latitude= $this->input->post('latitude');
+		$longitude = $this->input->post('longitude');
+
+		$data=array(
+			'nama_lokasi'=>$nama_lokasi,
+			'alamat_lokasi'=>$alamat_lokasi,
+			'jam_buka'=>$jam_buka,
+			'nomor_hp'=>$nomor_hp,
+			'latitude'=>$latitude,
+			'longitude'=>$longitude
+
+		);
+		$where = array('id_lokasi' => $id );
+		$this->M_db->edit_lokasi($data,$where);
+		redirect('admin/lihatdatadokter');
+	}
+
+	public function proses_edit_data_dokter($id){
+		$nama_dokter  = $this->input->post('nama_dokter');
+		$spesialis = $this->input->post('spesialis');
+		$nomor_hp = $this->input->post('nomor_hp');
+
+		$data = array(
+			'id_spesialis' => $spesialis,
+			'nomor_hp' => $nomor_hp,
+			'nama_dokter'   => $nama_dokter,
+		);
+		$where = array('id_dokter' => $id );
+		$this->M_db->edit_dokter($data,$where);
+		redirect('admin/lihatdatadokter');
+	}
+
+	public function proses_edit_data_kategori_lokasi($id){
+		$kategori=$this->input->post('kategori');
+
+		$data=array(
+			'id_kategori'=>$kategori,
+		);
+		$where = array('id_lokasi' => $id );
+		$this->M_db->edit_kategori_lokasi($data,$where);
+		redirect('admin/lihatdatadokter');
+
+	}
+
+	public function proses_edit_jenis_spesialis($id){
+		$jenis_spesialis=$this->input->post('jenis_spesialis');
+		$data=array(
+			'nama_spesialis'=>$jenis_spesialis
+		);
+		$where = array('id' => $id );
+		$this->M_db->edit_jenis_spesialis($data,$where);
+		redirect('admin/lihatdatadokter');
+	}
+
+	public function proses_pengisian_data_dokter_tempat(){
+		$nama_dokter  = $this->input->post('nama_dokter');
+		$lokasi = $this->input->post('lokasi');
+
+		$data = array(
+			'id_lokasi' => $lokasi,
+			'id_dokter'   => $nama_dokter,
+		);
+
+		// print_r($data);
+		 $this->M_db->tambah_dokter_tempat($data);
+		 redirect('admin/lihatdatadokter');
 	}
 
 }

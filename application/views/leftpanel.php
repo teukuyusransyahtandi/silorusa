@@ -18,9 +18,10 @@
         </div><!-- menu-item -->
       </a><!-- br-menu-link -->
       <ul class="br-menu-sub nav flex-column">
-        <li class="nav-item"><a href="<?= base_url('admin/lihatdata') ?>" class="nav-link">Rumah Sakit</a></li>
-        <li class="nav-item"><a href="<?= base_url('admin/lihatdata_apotek') ?>" class="nav-link">Apotek</a></li>
-        <li class="nav-item"><a href="<?= base_url('admin/lihatdatadokter') ?>" class="nav-link">Dokter Spesialis</a></li>
+        <li class="nav-item"><a href="<?= base_url('admin/lihatdata') ?>" class="nav-link">Rumah Sakit & Dokter</a></li>
+        <li class="nav-item"><a href="<?= base_url('admin/lihatdatadokter') ?>" class="nav-link">Daftar Nama Dokter</a></li>
+        <li class="nav-item"><a href="<?= base_url('admin/lihatdatakategorilokasi') ?>" class="nav-link">Daftar Kategori Lokasi</a></li>
+        <li class="nav-item"><a href="<?= base_url('admin/lihatdataspesialis') ?>" class="nav-link">Jenis Spesialis </a></li>
       </ul>
 
       <a href="#" class="br-menu-link">
@@ -31,9 +32,11 @@
         </div><!-- menu-item -->
       </a><!-- br-menu-link -->
       <ul class="br-menu-sub nav flex-column">
-        <li class="nav-item"><a href="<?= base_url('admin/pengisiandata') ?>" class="nav-link">Rumah Sakit</a></li>
-        <li class="nav-item"><a href="<?= base_url('admin/pengisiandata_apotek') ?>" class="nav-link">Apotek</a></li>
-        <li class="nav-item"><a href="<?= base_url('admin/pengisiandatadokter') ?>" class="nav-link">Dokter Spesialis</a></li>
+        <li class="nav-item"><a href="<?= base_url('admin/pengisiandata') ?>" class="nav-link">Lokasi</a></li>
+        <li class="nav-item"><a href="<?= base_url('admin/pengisiandatakategorilokasi') ?>" class="nav-link">Kategori Lokasi</a></li>
+        <li class="nav-item"><a href="<?= base_url('admin/pengisiandataspesialis') ?>" class="nav-link">Jenis Spesialis</a></li>
+        <li class="nav-item"><a href="<?= base_url('admin/pengisiandatadokter') ?>" class="nav-link">Dokter</a></li>
+        <li class="nav-item"><a href="<?= base_url('admin/pengisiandatadokterdantempat') ?>" class="nav-link">Dokter dan Tempat prakteknya </a></li>
       </ul>
 
 
