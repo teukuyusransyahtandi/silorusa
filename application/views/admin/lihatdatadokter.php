@@ -30,7 +30,7 @@
 									<td><?= $v->nama_lokasi ?></td>
 									<td><a href="<?php echo base_url("admin/edit_datadokter/$v->id_dokter"); ?>"
 										class="btn btn-info">Edit</a></td>
-										<td><a href="<?php echo base_url("$v->id_dokter"); ?>"
+										<td><a href="<?php echo base_url("admin/hapus_datadokter/$v->id_dokter"); ?>"
 											class="btn btn-danger">Hapus</a></td>
 										</tr>
 									<?php endforeach; ?>

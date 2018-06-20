@@ -28,7 +28,7 @@
 									<td><?= $v->nama_kategori ?></td>
 									<td><a href="<?php echo base_url("admin/edit_pengisiandata/$v->id_lokasi"); ?>"
 										class="btn btn-info">Edit</a></td>
-									<td><a href="<?php echo base_url("admin/edit_pengisiandata/$v->id_lokasi"); ?>"
+									<td><a href="<?php echo base_url("admin/hapus_pengisiandata/$v->id_lokasi"); ?>"
 											class="btn btn-danger">Hapus</a></td>
 										</tr>
 									<?php endforeach; ?>

@@ -22,7 +22,7 @@
 									<td><?= $v->nama_spesialis?></td>
 									<td><a href="<?php echo base_url("admin/edit_jenisspesialis/$v->id"); ?>"
 										class="btn btn-info">Edit</a></td>
-									<td><a href="<?php echo base_url("admin/edit_pengisiandata/$v->id"); ?>"
+									<td><a href="<?php echo base_url("admin/hapus_jenisspesialis/$v->id"); ?>"
 											class="btn btn-danger">Hapus</a></td>
 										</tr>
 									<?php endforeach; ?>

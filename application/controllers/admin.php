@@ -21,18 +21,18 @@ class Admin extends CI_Controller {
 
 	function __construct()
 
-    {
+	{
         // Construct the parent class
-        parent::__construct();
-        if (!$this->session->userdata('nama')) {
-        	redirect('/login');
-        }
-        else{
-        	if ($this->session->userdata('level') != "administrator") {
+		parent::__construct();
+		if (!$this->session->userdata('nama')) {
+			redirect('/login');
+		}
+		else{
+			if ($this->session->userdata('level') != "administrator") {
 				redirect('home');
 			}
-        }
-    }
+		}
+	}
 
 	public function dashboard()
 	{
@@ -135,6 +135,87 @@ class Admin extends CI_Controller {
 		$data['data'] = $this->M_db->lihatdokter();
 		$data['data2'] = $this->M_db->daftar_lokasi();
 		$this->load->view('template',$data);
+	}
+
+	public function hapus_pengisiandata($id) {
+
+		$where = array('id_lokasi' => $id, );
+
+		$this->M_db->hapus_pengisiandata($where);
+		if ($this->db->affected_rows())
+		{
+			$this->session->set_flashdata('info', 'berhasil dihapus!');
+			$this->session->set_flashdata('flag', 'success');
+			redirect('admin/lihatdata/');
+		}
+		else
+		{
+			$this->session->set_flashdata('info', 'gagal dihapus!');
+			$this->session->set_flashdata('flag', 'error');
+			redirect('admin/lihatdata/');
+		}
+
+	}
+
+	public function hapus_jenisspesialis($id) {
+
+		$where = array('id' => $id, );
+
+		$this->M_db->hapus_jenisspesialis($where);
+		if ($this->db->affected_rows())
+		{
+			$this->session->set_flashdata('info', 'berhasil dihapus!');
+			$this->session->set_flashdata('flag', 'success');
+			redirect('admin/lihatdataspesialis/');
+		}
+		else
+		{
+			$this->session->set_flashdata('info', 'gagal dihapus!');
+			$this->session->set_flashdata('flag', 'error');
+			redirect('admin/lihatdataspesialis/');
+		}
+
+	}
+
+
+	public function hapus_datadokter($id) {
+
+		$where = array('id_dokter' => $id, );
+
+		$this->M_db->hapus_datadokter($where);
+		if ($this->db->affected_rows())
+		{
+			$this->session->set_flashdata('info', 'berhasil dihapus!');
+			$this->session->set_flashdata('flag', 'success');
+			redirect('admin/lihatdatadokter/');
+		}
+		else
+		{
+			$this->session->set_flashdata('info', 'gagal dihapus!');
+			$this->session->set_flashdata('flag', 'error');
+			redirect('admin/lihatdatadokter/');
+		}
+
+	}
+
+	public function hapus_kategorilokasi($id) {
+
+		$where = array('id' => $id, );
+
+		$this->M_db->hapus_kategorilokasi($where);
+		if ($this->db->affected_rows())
+		{
+			$this->session->set_flashdata('info', 'berhasil dihapus!');
+			$this->session->set_flashdata('flag', 'success');
+			redirect('admin/lihatdatakategorilokasi/');
+		}
+		else
+		{
+			$this->session->set_flashdata('info', 'gagal dihapus!');
+			$this->session->set_flashdata('flag', 'error');
+			redirect('admin/lihatdatakategorilokasi/');
+		}
+
 	}
 
 

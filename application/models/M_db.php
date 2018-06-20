@@ -157,6 +157,21 @@ class M_db extends CI_Model
 	public function edit_jenis_spesialis($data, $where){
 		return $this->db->update('spesialis', $data, $where);
 	}
+
+	public function hapus_pengisiandata($where){
+		return $this->db->delete('lokasi', $where);
+	}
 	
+	public function hapus_jenisspesialis($where){
+		return $this->db->delete('spesialis', $where);
+	}
+
+	public function hapus_datadokter($where){
+		return $this->db->delete('dokter', $where);
+	}
+
+	public function hapus_kategorilokasi($where){
+		return $this->db->delete('kategori_lokasi', $where);
+	}
 
 }
