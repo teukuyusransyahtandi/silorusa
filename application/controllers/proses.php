@@ -66,6 +66,24 @@ class Proses extends CI_Controller {
 	}
 
 	public function proses_register(){
+		$username  = $this->input->post('username');
+		$email = $this->input->post('email');
+		$password = $this->input->post('password');
+		$confirm = $this->input->post('confirm_pass');
+
+		if($password === $confirm){
+			$data = array(
+				'username' => $username,
+				'password' => md5($password),
+				'level' => 'user'
+			);
+
+			$status = $this->db->insert('user', $data);
+			if($status){
+				redirect('home');
+			}
+		}
+
 		
 	}
 
