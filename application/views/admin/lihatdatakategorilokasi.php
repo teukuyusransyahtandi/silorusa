@@ -25,7 +25,7 @@
 									<td><a href="<?php echo base_url("admin/edit_kategorilokasi/$v->id_lokasi"); ?>"
 										class="btn btn-info">Edit</a></td>
 									<td><a href="<?php echo base_url("admin/hapus_kategorilokasi/$v->id_lokasi"); ?>"
-											class="btn btn-danger">Hapus</a></td>
+											class="btn btn-danger" onclick="javascript:return confirm('Are you sure you want to delete this ?')">Hapus</a></td>
 										</tr>
 									<?php endforeach; ?>
 								</tbody>
